@@ -1,4 +1,5 @@
 require "misc"
+require "room"
 
 function Builder()
   local b = {}
@@ -60,7 +61,7 @@ function Builder()
     self.room_end = {self.tx+1, self.ty+1}
   end
 
-  function b:buildRoom() -- Builds room from start and end points
+  function b:createRoom()
     local rtx = math.min(self.room_start[1], self.room_end[1])
     local rty = math.min(self.room_start[2], self.room_end[2])
     local rw  = math.abs(self.room_end[1] - self.room_start[1])
@@ -71,22 +72,11 @@ function Builder()
     print("room build  rw: "..tostring(rw))
     print("room build  rh: "..tostring(rh))
 
-    for y=rty, rty+rh-1 do
-      for x=rtx, rtx+rw-1 do
-        world_map.data[y][x] = Tile(1, x, y)
-      end
+    if rw > 0 and rh > 0 then
+      local room = Room(1, rtx, rty, rw, rh)
+      room:build()
+      rooms[#rooms+1] = room
     end
-  end
-
-  function b:createRoom()
-    local rtx = math.min(self.room_start[1], self.room_end[1])
-    local rty = math.min(self.room_start[2], self.room_end[2])
-    local rw  = math.abs(self.room_end[1] - self.room_start[1])
-    local rh  = math.abs(self.room_end[2] - self.room_start[2])
-
-    local room = Room(1, rtx, rty, rw, rh)
-    room:build()
-    rooms[#rooms+1] = room
   end
 
   function b:buildMode()
@@ -97,7 +87,7 @@ function Builder()
     else
       if self.room_start ~= nil and self.room_end ~= nil  and self.drawing_room == true then
         self.drawing_room = false
-        self:buildRoom()
+        self:createRoom()
       end
     end
   end
@@ -128,7 +118,7 @@ function Builder()
   function b:draw()
     love.graphics.draw(self.sprite, self.x, self.y)
 
-    if self.room_start and self.room_end then
+    if self.room_start and self.room_end and self.drawing_room then
       love.graphics.setColor(0, 1, 0.2)
       local rx = (self.room_start[1]-1) * TILE_WIDTH
       local ry = (self.room_start[2]-1) * TILE_HEIGHT

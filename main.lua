@@ -1,6 +1,7 @@
 require "window"
 require "builder"
 require "map"
+require "room"
 
 function love.load()
   setupWindow()
@@ -20,6 +21,11 @@ end
 function love.draw()
   drawGrid()
   world_map:draw()
+
+  for i=1, #rooms do
+    rooms[i]:draw()
+  end
+
   builder:draw()
 end
 
