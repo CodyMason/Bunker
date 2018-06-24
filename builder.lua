@@ -61,7 +61,7 @@ function Builder()
     self.room_end = {self.tx+1, self.ty+1}
   end
 
-  function b:createRoom()
+  function b:createRoom(type)
     local rtx = math.min(self.room_start[1], self.room_end[1])
     local rty = math.min(self.room_start[2], self.room_end[2])
     local rw  = math.abs(self.room_end[1] - self.room_start[1])
@@ -73,7 +73,7 @@ function Builder()
     print("room build  rh: "..tostring(rh))
 
     if rw > 0 and rh > 0 then
-      local room = Room(1, rtx, rty, rw, rh)
+      local room = Room(type, rtx, rty, rw, rh)
       room:build()
       rooms[#rooms+1] = room
     end
@@ -87,7 +87,7 @@ function Builder()
     else
       if self.room_start ~= nil and self.room_end ~= nil  and self.drawing_room == true then
         self.drawing_room = false
-        self:createRoom()
+        self:createRoom(ROOM_TYPES[math.random(#ROOM_TYPES)])
       end
     end
   end

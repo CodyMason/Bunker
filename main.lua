@@ -1,17 +1,12 @@
 require "window"
+require "game"
 require "builder"
 require "map"
 require "room"
 
 function love.load()
   setupWindow()
-
-  rooms = {}
-
-  world_map = Map(40, 30)
-  world_map:genMap(8)
-
-  builder = Builder()
+  setupGame()
 end
 
 function love.update(dt)
