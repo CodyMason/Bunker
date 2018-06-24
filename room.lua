@@ -10,7 +10,7 @@ function Room(type, tx, ty, w, h)
 
   function r:getRoomColor()
     local colors = {["empty"]   = {0.5, 0.5, 0.5},
-                    ["storage"] = {1.0, 0.78, 0.3},
+                    ["storage"] = {1.0, 0.5, 0.2},
                     ["plant"]   = {0.35, 0.9, 0.24},
                     ["power"]   = {0.75, 0.2, 0.1},
                     ["oxygen"]  = {0.0, 0.5, 0.8}}

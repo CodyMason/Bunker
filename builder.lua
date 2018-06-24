@@ -1,12 +1,15 @@
 require "misc"
 require "room"
+require "menu"
 
 function Builder()
-  local b = {}
+  local b  = {}
   b.x      = 0
   b.y      = 0
   b.tx     = 1
   b.ty     = 1
+
+  b.menu   = BuildMenu(32, 64, 40, 144)
 
   b.pressed      = false
   b.just_pressed = false
@@ -98,7 +101,22 @@ function Builder()
     self.tx = math.floor(self.x/TILE_WIDTH)  + 1
     self.ty = math.floor(self.y/TILE_HEIGHT) + 1
 
+    --self.menu:update()
+
     self:buildMode()
+  end
+
+  function b:drawSelection()
+    if self.room_start and self.room_end and self.drawing_room then
+      love.graphics.setColor(0, 1, 0.2)
+      local rx = (self.room_start[1]-1) * TILE_WIDTH
+      local ry = (self.room_start[2]-1) * TILE_HEIGHT
+      local rw = (self.room_end[1] - self.room_start[1]) * TILE_WIDTH
+      local rh = (self.room_end[2] - self.room_start[2]) * TILE_HEIGHT
+
+      love.graphics.rectangle("line", rx, ry, rw, rh)
+      love.graphics.setColor(1, 1, 1)
+    end
   end
 
   function b:debugDraw()
@@ -116,19 +134,11 @@ function Builder()
   end
 
   function b:draw()
+    self.menu:draw()
+    self:drawSelection()
     love.graphics.draw(self.sprite, self.x, self.y)
 
-    if self.room_start and self.room_end and self.drawing_room then
-      love.graphics.setColor(0, 1, 0.2)
-      local rx = (self.room_start[1]-1) * TILE_WIDTH
-      local ry = (self.room_start[2]-1) * TILE_HEIGHT
-      local rw = (self.room_end[1] - self.room_start[1]) * TILE_WIDTH
-      local rh = (self.room_end[2] - self.room_start[2]) * TILE_HEIGHT
-
-      love.graphics.rectangle("line", rx, ry, rw, rh)
-      --love.graphics.setColor(1, 1, 1)
-    end
-    self:debugDraw()
+    --self:debugDraw()
   end
 
   return b

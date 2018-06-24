@@ -25,9 +25,9 @@
      borderopacity="1.0"
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="2"
-     inkscape:zoom="22.627417"
-     inkscape:cx="162.52354"
-     inkscape:cy="221.72437"
+     inkscape:zoom="2"
+     inkscape:cx="185.79414"
+     inkscape:cy="279.50646"
      inkscape:document-units="mm"
      inkscape:current-layer="layer1"
      showgrid="false"
@@ -53,7 +53,7 @@
         <dc:format>image/svg+xml</dc:format>
         <dc:type
            rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
-        <dc:title></dc:title>
+        <dc:title />
       </cc:Work>
     </rdf:RDF>
   </metadata>
@@ -171,5 +171,92 @@
        d="M 153.14258 248 C 152.50944 248 152 248.50944 152 249.14258 L 152 262.85742 C 152 263.49056 152.50944 264 153.14258 264 L 166.85742 264 C 167.49056 264 168 263.49056 168 262.85742 L 168 249.14258 C 168 248.50944 167.49056 248 166.85742 248 L 153.14258 248 z M 156 250 L 159 253 L 157 255 L 154 252 L 156 250 z M 164 250 L 166 252 L 156 262 L 154 260 L 164 250 z M 163 257 L 166 260 L 164 262 L 161 259 L 163 257 z "
        transform="matrix(0.26458333,0,0,0.26458333,0,169.99999)"
        id="rect4545" />
+    <g
+       id="g4517"
+       transform="translate(29.236458)"
+       inkscape:export-filename="C:\Users\Cody\Dropbox\Coding\LOVE2d\Bunker\images\build_menu\plant.png"
+       inkscape:export-xdpi="72"
+       inkscape:export-ydpi="72">
+      <circle
+         r="4.2333331"
+         cy="199.63332"
+         cx="42.333332"
+         id="circle4513"
+         style="opacity:1;vector-effect:none;fill:#5fd35f;fill-opacity:1;fill-rule:nonzero;stroke:none;stroke-width:5;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;paint-order:normal" />
+      <path
+         style="opacity:1;vector-effect:none;fill:#ffffff;fill-opacity:1;fill-rule:nonzero;stroke:none;stroke-width:5;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;paint-order:normal"
+         d="m 44.477414,197.67174 c 0,0 -2.685021,-0.0427 -3.45612,0.85989 -0.53145,0.62212 -0.341204,2.20008 -0.274918,2.65204 l -0.48886,0.48885 c -0.103648,0.10365 -0.103648,0.2705 0,0.37414 0.103648,0.10365 0.270492,0.10365 0.374137,0 l 0.535388,-0.52954 c 0.518488,0.0509 2.060545,0.025 2.615842,-0.48848 0.838946,-0.77579 0.694531,-3.3569 0.694531,-3.3569 z"
+         id="path4515"
+         inkscape:connector-curvature="0"
+         sodipodi:nodetypes="ccccccccc" />
+    </g>
+    <g
+       id="g4523"
+       transform="translate(29.236458)"
+       inkscape:export-filename="C:\Users\Cody\Dropbox\Coding\LOVE2d\Bunker\images\build_menu\power.png"
+       inkscape:export-xdpi="72"
+       inkscape:export-ydpi="72">
+      <circle
+         style="opacity:1;vector-effect:none;fill:#ff2a2a;fill-opacity:1;fill-rule:nonzero;stroke:none;stroke-width:5;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;paint-order:normal"
+         id="circle4519"
+         cx="42.333332"
+         cy="212.33333"
+         r="4.2333331" />
+      <path
+         style="fill:#ffffff;fill-rule:evenodd;stroke:none;stroke-width:0.26458332px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+         d="m 41.142707,210.21666 h 2.116667 l -0.793749,1.5875 h 1.322916 l -1.852083,3.175 0.264583,-1.85208 h -1.322916 z"
+         id="path4521"
+         inkscape:connector-curvature="0"
+         sodipodi:nodetypes="cccccccc" />
+    </g>
+    <g
+       id="g4535"
+       transform="translate(29.236458)"
+       inkscape:export-filename="C:\Users\Cody\Dropbox\Coding\LOVE2d\Bunker\images\build_menu\oxygen.png"
+       inkscape:export-xdpi="71.999969"
+       inkscape:export-ydpi="71.999969">
+      <circle
+         r="4.2333331"
+         cy="225.03333"
+         cx="42.333332"
+         id="circle4525"
+         style="opacity:1;vector-effect:none;fill:#2a7fff;fill-opacity:1;fill-rule:nonzero;stroke:none;stroke-width:5;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;paint-order:normal" />
+      <g
+         id="g4533">
+        <path
+           inkscape:connector-curvature="0"
+           id="path4527"
+           d="m 41.804166,223.18124 a 1.852082,1.852082 0 0 0 -1.852083,1.85208 1.852082,1.852082 0 0 0 1.852083,1.85209 1.852082,1.852082 0 0 0 1.852084,-1.85209 1.852082,1.852082 0 0 0 -1.852084,-1.85208 z m 0,0.65474 a 1.1972717,1.1972717 0 0 1 1.197343,1.19734 1.1972717,1.1972717 0 0 1 -1.197343,1.19735 1.1972717,1.1972717 0 0 1 -1.197342,-1.19735 1.1972717,1.1972717 0 0 1 1.197342,-1.19734 z"
+           style="opacity:1;vector-effect:none;fill:#ffffff;fill-opacity:1;fill-rule:nonzero;stroke:none;stroke-width:3.49999762;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;paint-order:normal" />
+        <text
+           id="text4531"
+           y="227.1221"
+           x="43.478016"
+           style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:2.11666656px;line-height:125%;font-family:Consolas;-inkscape-font-specification:'Consolas, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;text-align:start;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:start;fill:#ffffff;fill-opacity:1;stroke:none;stroke-width:0.26458332px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+           xml:space="preserve"><tspan
+             style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:2.11666656px;font-family:Consolas;-inkscape-font-specification:'Consolas, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;text-align:start;writing-mode:lr-tb;text-anchor:start;fill:#ffffff;stroke-width:0.26458332px"
+             y="227.1221"
+             x="43.478016"
+             id="tspan4529"
+             sodipodi:role="line">2</tspan></text>
+      </g>
+    </g>
+    <g
+       id="g4541"
+       inkscape:export-filename="C:\Users\Cody\Dropbox\Coding\LOVE2d\Bunker\images\build_menu\storage.png"
+       inkscape:export-xdpi="72.000038"
+       inkscape:export-ydpi="72.000038">
+      <circle
+         style="opacity:1;vector-effect:none;fill:#ff6600;fill-opacity:1;fill-rule:nonzero;stroke:none;stroke-width:5;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;paint-order:normal"
+         id="circle4511"
+         cx="71.569794"
+         cy="237.73332"
+         r="4.2333331" />
+      <path
+         inkscape:connector-curvature="0"
+         style="opacity:1;vector-effect:none;fill:#ffffff;fill-opacity:1;fill-rule:nonzero;stroke:none;stroke-width:5.71428442;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;paint-order:normal"
+         d="m 69.755432,235.61666 c -0.167518,0 -0.302307,0.13479 -0.302307,0.3023 v 3.62872 c 0,0.16752 0.134789,0.30231 0.302307,0.30231 h 3.628718 c 0.167518,0 0.302308,-0.13479 0.302308,-0.30231 v -3.62872 c 0,-0.16751 -0.13479,-0.3023 -0.302308,-0.3023 z m 0.756026,0.52916 0.79375,0.79375 -0.529167,0.52917 -0.79375,-0.79375 z m 2.116666,0 0.529167,0.52917 -2.645833,2.64583 -0.529167,-0.52916 z m -0.264583,1.85209 0.79375,0.79375 -0.529167,0.52916 -0.79375,-0.79375 z"
+         id="path4537" />
+    </g>
   </g>
 </svg>
