@@ -101,7 +101,7 @@ function Builder()
     self.tx = math.floor(self.x/TILE_WIDTH)  + 1
     self.ty = math.floor(self.y/TILE_HEIGHT) + 1
 
-    --self.menu:update()
+    self.menu:update()
 
     self:buildMode()
   end
