@@ -4,7 +4,7 @@ function followMouse(self)
 end
 
 function drawGrid()
-  love.graphics.setColor(0.8, 0.8, 0.8)
+  love.graphics.setColor(0.9, 0.9, 0.9)
   for y=1, world_map.h do
     love.graphics.line(0, y*TILE_HEIGHT, world_map.w*TILE_WIDTH, y*TILE_WIDTH)
   end
