@@ -9,7 +9,7 @@ function Builder()
   b.tx     = 1
   b.ty     = 1
 
-  b.menu   = BuildMenu(32, 64, 40, 144)
+  b.menu   = BuildMenu(24, 96, 40, 144)
 
   b.pressed      = false
   b.just_pressed = false
@@ -82,6 +82,10 @@ function Builder()
     end
   end
 
+  function b:menuMode()
+
+  end
+
   function b:buildMode()
     if self.pressed then
       if self:canBuild() then
@@ -95,15 +99,28 @@ function Builder()
     end
   end
 
+  function b:changeSprite()
+	if self.pressed then
+	  self.sprite = self.sprites[2]
+	else
+	  self.sprite = self.sprites[1]
+	end
+  end
+
   function b:update()
     followMouse(self)
+	self:changeSprite()
     self:checkPressed()
     self.tx = math.floor(self.x/TILE_WIDTH)  + 1
     self.ty = math.floor(self.y/TILE_HEIGHT) + 1
 
     self.menu:update()
 
-    self:buildMode()
+	if self.menu:checkHovered(self) then
+		self:menuMode()
+	else
+		self:buildMode()
+	end
   end
 
   function b:drawSelection()

@@ -3,6 +3,7 @@ require "game"
 require "builder"
 require "map"
 require "room"
+require "ui"
 
 function love.load()
   setupWindow()

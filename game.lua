@@ -1,17 +1,21 @@
+require "resource"
 
 function setupGame()
   grid = true
-
   rooms = {}
 
-  world_map = Map(40, 30)
-  world_map:genMap(8)
+  initResources()
+  initUI()
+
+  initMap()
 
   builder = Builder()
 end
 
 function updateGame()
   builder:update()
+  updateResources()
+  updateUI()
 end
 
 function drawGame()
@@ -22,5 +26,6 @@ function drawGame()
     rooms[i]:draw()
   end
 
+  drawUI()
   builder:draw()
 end

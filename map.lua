@@ -32,3 +32,8 @@ function Map(w, h)
 
   return m
 end
+
+function initMap()
+  world_map = Map(40, 30)
+  world_map:genMap(8)
+end

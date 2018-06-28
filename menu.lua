@@ -56,6 +56,11 @@ function BuildMenu(x, y, w, h)
              MenuItem(m, love.graphics.newImage("images/build_menu/storage.png"), 8, 112)
   }}
 
+  function m:checkHovered(o)
+	return o.x > self.x and o.x < self.x + self.w and
+		   o.y > self.y and o.y < self.y + self.h
+  end
+  
   function m:update()
 	for i=1, #self.items[self.open_tab] do
 	  self.items[self.open_tab][i]:update()
