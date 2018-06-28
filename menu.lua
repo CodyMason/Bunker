@@ -31,10 +31,11 @@ function MenuItem(menu, img, x, y)
 	local oy = self.menu.y
 	
 	if self.hovered then
-	  love.graphics.draw(self.img, self.x+ox, self.y+oy-8)
-	else
-	  love.graphics.draw(self.img, self.x+ox, self.y+oy)
+	  love.graphics.setColor(1, 1, 1)
+	  love.graphics.circle("fill", self.x+ox+(self.sz/2 + 4), self.y+oy+(self.sz/2 + 4), self.sz)
 	end
+	
+	love.graphics.draw(self.img, self.x+ox, self.y+oy)
   end
 
   return m
@@ -63,7 +64,7 @@ function BuildMenu(x, y, w, h)
   
   function m:draw()
     love.graphics.setColor(0.8, 0.8, 0.8)
-    love.graphics.rectangle("fill", self.x, self.y, self.w, self.h, 16, 16, 8)
+    love.graphics.rectangle("fill", self.x, self.y, self.w, self.h, 16, 16, 16)
     love.graphics.setColor(1, 1, 1)
 
     for i=1, #self.items[self.open_tab] do

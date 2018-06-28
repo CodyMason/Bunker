@@ -70,10 +70,10 @@ function Builder()
     local rw  = math.abs(self.room_end[1] - self.room_start[1])
     local rh  = math.abs(self.room_end[2] - self.room_start[2])
 
-    print("room build rtx: "..tostring(rtx))
-    print("room build rty: "..tostring(rty))
-    print("room build  rw: "..tostring(rw))
-    print("room build  rh: "..tostring(rh))
+    --print("room build rtx: "..tostring(rtx))
+    --print("room build rty: "..tostring(rty))
+    --print("room build  rw: "..tostring(rw))
+    --print("room build  rh: "..tostring(rh))
 
     if rw > 0 and rh > 0 then
       local room = Room(type, rtx, rty, rw, rh)
