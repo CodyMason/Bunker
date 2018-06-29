@@ -1,12 +1,17 @@
 require "misc"
 require "room"
+require "menu"
+require "constant"
 
 function Builder()
-  local b = {}
-  b.x      = 0
-  b.y      = 0
-  b.tx     = 1
-  b.ty     = 1
+  local b  = {}
+  b.x         = 0
+  b.y         = 0
+  b.tx        = 1
+  b.ty        = 1
+  b.room_type = "empty"
+
+  b.menu   = BuildMenu(24, 96, 40, 180)
 
   b.pressed      = false
   b.just_pressed = false
@@ -43,6 +48,7 @@ function Builder()
         return true
       else
         --print("cannot place")
+		return false
       end
     end
   end
@@ -61,22 +67,33 @@ function Builder()
     self.room_end = {self.tx+1, self.ty+1}
   end
 
-  function b:createRoom()
+  function b:createRoom(type)
     local rtx = math.min(self.room_start[1], self.room_end[1])
     local rty = math.min(self.room_start[2], self.room_end[2])
     local rw  = math.abs(self.room_end[1] - self.room_start[1])
     local rh  = math.abs(self.room_end[2] - self.room_start[2])
 
-    print("room build rtx: "..tostring(rtx))
-    print("room build rty: "..tostring(rty))
-    print("room build  rw: "..tostring(rw))
-    print("room build  rh: "..tostring(rh))
+    --print("room build rtx: "..tostring(rtx))
+    --print("room build rty: "..tostring(rty))
+    --print("room build  rw: "..tostring(rw))
+    --print("room build  rh: "..tostring(rh))
 
     if rw > 0 and rh > 0 then
-      local room = Room(1, rtx, rty, rw, rh)
+      local room = Room(type, rtx, rty, rw, rh)
       room:build()
       rooms[#rooms+1] = room
     end
+  end
+
+  function b:menuMode()
+	for i=1, #self.menu.items[self.menu.open_tab] do
+	  local item = self.menu.items[self.menu.open_tab][i]
+	  if item:checkHovered() then
+		if self.just_pressed then
+			self.room_type = item.type
+		end
+	  end
+	end
   end
 
   function b:buildMode()
@@ -87,18 +104,46 @@ function Builder()
     else
       if self.room_start ~= nil and self.room_end ~= nil  and self.drawing_room == true then
         self.drawing_room = false
-        self:createRoom()
+        self:createRoom(self.room_type)
       end
     end
   end
 
+  function b:changeSprite()
+	if self.pressed then
+	  self.sprite = self.sprites[2]
+	else
+	  self.sprite = self.sprites[1]
+	end
+  end
+
   function b:update()
     followMouse(self)
+	self:changeSprite()
     self:checkPressed()
     self.tx = math.floor(self.x/TILE_WIDTH)  + 1
     self.ty = math.floor(self.y/TILE_HEIGHT) + 1
 
-    self:buildMode()
+    self.menu:update()
+
+	if self.menu:checkHovered(self) then
+		self:menuMode()
+	else
+		self:buildMode()
+	end
+  end
+
+  function b:drawSelection()
+    if self.room_start and self.room_end and self.drawing_room then
+      love.graphics.setColor(0, 1, 0.2)
+      local rx = (self.room_start[1]-1) * TILE_WIDTH
+      local ry = (self.room_start[2]-1) * TILE_HEIGHT
+      local rw = (self.room_end[1] - self.room_start[1]) * TILE_WIDTH
+      local rh = (self.room_end[2] - self.room_start[2]) * TILE_HEIGHT
+
+      love.graphics.rectangle("line", rx, ry, rw, rh)
+      love.graphics.setColor(1, 1, 1)
+    end
   end
 
   function b:debugDraw()
@@ -115,20 +160,20 @@ function Builder()
     love.graphics.setColor(1, 1, 1)
   end
 
+  function b:drawRoomType()
+	--print(self.room_type)
+	love.graphics.setColor(COLORS[self.room_type])
+	love.graphics.circle("fill", 600, 32, 16)
+	love.graphics.setColor(1, 1, 1)
+	--print(COLORS[self.room_type][1], COLORS[self.room_type][2], COLORS[self.room_type][3])
+  end
+  
   function b:draw()
+    self.menu:draw()
+    self:drawSelection()
     love.graphics.draw(self.sprite, self.x, self.y)
 
-    if self.room_start and self.room_end and self.drawing_room then
-      love.graphics.setColor(0, 1, 0.2)
-      local rx = (self.room_start[1]-1) * TILE_WIDTH
-      local ry = (self.room_start[2]-1) * TILE_HEIGHT
-      local rw = (self.room_end[1] - self.room_start[1]) * TILE_WIDTH
-      local rh = (self.room_end[2] - self.room_start[2]) * TILE_HEIGHT
-
-      love.graphics.rectangle("line", rx, ry, rw, rh)
-      --love.graphics.setColor(1, 1, 1)
-    end
-    self:debugDraw()
+    --self:debugDraw()
   end
 
   return b

@@ -1,32 +1,21 @@
 require "window"
+require "game"
 require "builder"
 require "map"
 require "room"
+require "ui"
 
 function love.load()
   setupWindow()
-
-  rooms = {}
-
-  world_map = Map(40, 30)
-  world_map:genMap(8)
-
-  builder = Builder()
+  setupGame()
 end
 
 function love.update(dt)
-  builder:update()
+  updateGame()
 end
 
 function love.draw()
-  drawGrid()
-  world_map:draw()
-
-  for i=1, #rooms do
-    rooms[i]:draw()
-  end
-
-  builder:draw()
+  drawGame()
 end
 
 function love.keypressed(key)
@@ -34,5 +23,7 @@ function love.keypressed(key)
     love.load()
   elseif key == "escape" then
     love.event.quit()
+  elseif key == "g" then
+    grid = not grid
   end
 end
