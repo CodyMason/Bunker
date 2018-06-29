@@ -1,6 +1,7 @@
 require "resource"
 
 function setupGame()
+  game_timer = 0
   grid = true
   rooms = {}
 
@@ -13,9 +14,15 @@ function setupGame()
 end
 
 function updateGame()
+  for i=1, #rooms do
+    rooms[i]:update()
+  end
+
   builder:update()
   updateResources()
   updateUI()
+  
+  game_timer = game_timer + 1
 end
 
 function drawGame()

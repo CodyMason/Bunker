@@ -14,18 +14,17 @@ function Resource(type, value, max)
   end
 
   function r:update()
-    --self.value = self.value + 1
     self:limitResource()
-    --print(self.value)
+	self.value = self.value % self.max
   end
 
   return r
 end
 
 function initResources()
-  resources = {["power"]  = Resource("power",  50, 100),
-               ["food"]   = Resource("food",   25, 100),
-               ["oxygen"] = Resource("oxygen", 75, 100)}
+  resources = {["power"]  = Resource("power",  0, 50),
+               ["food"]   = Resource("food",   0, 75),
+               ["oxygen"] = Resource("oxygen", 0, 25)}
   --print(resources["power"])
 end
 

@@ -1,20 +1,29 @@
 
+require "resource"
+
 ROOM_TYPES = {[1] = "empty",
               [2] = "storage",
-              [3] = "plant",
+              [3] = "food",
               [4] = "power",
               [5] = "oxygen"}
 
-function Room(type, tx, ty, w, h)
+function Room(type, tx, ty, w, h, speed)
   local r = {}
 
   function r:getRoomColor()
     local colors = {["empty"]   = {0.5, 0.5, 0.5},
                     ["storage"] = {1.0, 0.5, 0.2},
-                    ["plant"]   = {0.35, 0.9, 0.24},
-                    ["power"]   = {0.75, 0.2, 0.1},
+					["power"]   = {0.75, 0.2, 0.1},
+                    ["food"]    = {0.35, 0.9, 0.24},
                     ["oxygen"]  = {0.0, 0.5, 0.8}}
     return colors[self.type]
+  end
+  
+  function r:getRoomSpeed()
+	local speeds = {["power"]  = 24,
+					["food"]   = 56,
+					["oxygen"] = 32}
+	return speeds[self.type]
   end
 
   r.type  = type
@@ -22,7 +31,9 @@ function Room(type, tx, ty, w, h)
   r.ty    = ty
   r.w     = w
   r.h     = h
-  r.color = r:getRoomColor()
+  
+  r.speed = r:getRoomSpeed() or 0 -- resource collection speed
+  r.color = r:getRoomColor() or {1, 0, 0}
 
   function r:build()
     for y=self.ty, self.ty+self.h-1 do
@@ -31,7 +42,20 @@ function Room(type, tx, ty, w, h)
       end
     end
   end
+  
+  function r:collectResources()
+	if resources[self.type] ~= nil then
+	  local amt = (self.w * self.h)/10
+	  resources[self.type].value = resources[self.type].value + amt
+	end
+  end
 
+  function r:update()
+	if game_timer % self.speed == 0 then
+		self:collectResources()
+	end
+  end
+  
   function r:draw()
     local inset = 4
     love.graphics.setColor(0.6, 0.6, 0.6)
