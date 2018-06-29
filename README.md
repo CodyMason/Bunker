@@ -5,5 +5,5 @@ I'm not 100% sure how this game will turn out, or if I'll even get it finished, 
 
 #### Current Gameplay Screenshot:
 <p align="center">
-  <img src="docs/Game_Screenshot_5.PNG"/>
+  <img src="docs/Game_Screenshot_6.PNG"/>
 </p>
