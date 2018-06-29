@@ -1,13 +1,14 @@
 require "misc"
 
-function MenuItem(menu, img, x, y)
+function MenuItem(menu, img, x, y, type)
   local m = {}
-  m.menu 	= menu
-  m.img     = img
-  m.x       = x -- x relative to menu x
-  m.y       = y -- y relative to menu y
-  m.sz      = 16
-  m.hovered = false
+  m.menu 	 = menu
+  m.img      = img
+  m.x        = x -- x relative to menu x
+  m.y        = y -- y relative to menu y
+  m.type     = type
+  m.sz       = 16
+  m.hovered  = false
 
   function m:checkHovered()
 	local ox = self.menu.x
@@ -50,10 +51,11 @@ function BuildMenu(x, y, w, h)
   m.tabs  = {"Rooms"}
   m.open_tab = "Rooms"
   m.items = {["Rooms"] = {
-             MenuItem(m, love.graphics.newImage("images/build_menu/plant.png"), 8, 16),
-             MenuItem(m, love.graphics.newImage("images/build_menu/power.png"), 8, 48),
-             MenuItem(m, love.graphics.newImage("images/build_menu/oxygen.png"), 8, 80),
-             MenuItem(m, love.graphics.newImage("images/build_menu/storage.png"), 8, 112)
+			 MenuItem(m, love.graphics.newImage("images/build_menu/empty.png"),   8, 16,  "empty"),
+             MenuItem(m, love.graphics.newImage("images/build_menu/plant.png"),   8, 48,  "food"),
+             MenuItem(m, love.graphics.newImage("images/build_menu/power.png"),   8, 80,  "power"),
+             MenuItem(m, love.graphics.newImage("images/build_menu/oxygen.png"),  8, 112,  "oxygen"),
+             MenuItem(m, love.graphics.newImage("images/build_menu/storage.png"), 8, 144, "storage")
   }}
 
   function m:checkHovered(o)

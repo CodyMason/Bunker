@@ -1,15 +1,17 @@
 require "misc"
 require "room"
 require "menu"
+require "constant"
 
 function Builder()
   local b  = {}
-  b.x      = 0
-  b.y      = 0
-  b.tx     = 1
-  b.ty     = 1
+  b.x         = 0
+  b.y         = 0
+  b.tx        = 1
+  b.ty        = 1
+  b.room_type = "empty"
 
-  b.menu   = BuildMenu(24, 96, 40, 144)
+  b.menu   = BuildMenu(24, 96, 40, 180)
 
   b.pressed      = false
   b.just_pressed = false
@@ -46,6 +48,7 @@ function Builder()
         return true
       else
         --print("cannot place")
+		return false
       end
     end
   end
@@ -83,7 +86,14 @@ function Builder()
   end
 
   function b:menuMode()
-
+	for i=1, #self.menu.items[self.menu.open_tab] do
+	  local item = self.menu.items[self.menu.open_tab][i]
+	  if item:checkHovered() then
+		if self.just_pressed then
+			self.room_type = item.type
+		end
+	  end
+	end
   end
 
   function b:buildMode()
@@ -94,7 +104,7 @@ function Builder()
     else
       if self.room_start ~= nil and self.room_end ~= nil  and self.drawing_room == true then
         self.drawing_room = false
-        self:createRoom(ROOM_TYPES[math.random(#ROOM_TYPES)])
+        self:createRoom(self.room_type)
       end
     end
   end
@@ -150,6 +160,14 @@ function Builder()
     love.graphics.setColor(1, 1, 1)
   end
 
+  function b:drawRoomType()
+	--print(self.room_type)
+	love.graphics.setColor(COLORS[self.room_type])
+	love.graphics.circle("fill", 600, 32, 16)
+	love.graphics.setColor(1, 1, 1)
+	--print(COLORS[self.room_type][1], COLORS[self.room_type][2], COLORS[self.room_type][3])
+  end
+  
   function b:draw()
     self.menu:draw()
     self:drawSelection()

@@ -67,4 +67,5 @@ function drawUI()
   for i=1, #ui_elements do
 	ui_elements[i]:draw()
   end
+  builder:drawRoomType()
 end

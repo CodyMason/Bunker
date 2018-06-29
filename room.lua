@@ -10,6 +10,7 @@ ROOM_TYPES = {[1] = "empty",
 function Room(type, tx, ty, w, h, speed)
   local r = {}
 
+  -- REPLACE THESE LOCALS WITH GLOBAL CONSTANTS
   function r:getRoomColor()
     local colors = {["empty"]   = {0.5, 0.5, 0.5},
                     ["storage"] = {1.0, 0.5, 0.2},
