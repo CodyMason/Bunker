@@ -1,4 +1,6 @@
 
+require "constant"
+
 function UIImage(img, x, y)
   local u  = {}
   u.img    = img
@@ -45,9 +47,9 @@ function UIBar(x, y, resource_type, col)
 end
 
 function initUI()
-  power_bar  = UIBar(64, 18, "power",  {0.75, 0.2, 0.1})
-  food_bar   = UIBar(64, 34, "food",   {0.35, 0.9, 0.24})
-  oxygen_bar = UIBar(64, 50, "oxygen", {0.0, 0.5, 0.8})
+  power_bar  = UIBar(64, 18, "power",  COLORS["power"])
+  food_bar   = UIBar(64, 34, "food",   COLORS["food"])
+  oxygen_bar = UIBar(64, 50, "oxygen", COLORS["oxygen"])
 
   ui_elements = {
 	UIImage(love.graphics.newImage("images/ui/main/power.png"), 16, 16),
