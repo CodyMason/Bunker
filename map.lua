@@ -6,16 +6,12 @@ function Map(w, h)
   m.h     = h
   m.data  = {}
 
-  function m:genMap(floor)
+  function m:genEmptyMap()
     self.data = {}
     for y=1, self.h do
       self.data[y] = {}
       for x=1, self.w do
-        if y >= self.h - floor then
-          self.data[y][x] = Tile(1, x, y)
-        else
-          self.data[y][x] = 0
-        end
+        self.data[y][x] = 0
       end
     end
   end
@@ -35,5 +31,14 @@ end
 
 function initMap()
   world_map = Map(40, 30)
-  world_map:genMap(8)
+  world_map:genEmptyMap()
+end
+
+function drawGround()
+	local width  = love.graphics.getWidth()
+	local height = love.graphics.getHeight()
+	
+	love.graphics.setColor(0.6, 0.6, 0.6)
+	love.graphics.rectangle("fill", 0, height-GROUND, width, GROUND)
+	love.graphics.setColor(1, 1, 1)
 end

@@ -4,6 +4,8 @@ require "builder"
 require "map"
 require "room"
 require "ui"
+require "resource"
+require "worker"
 
 function love.load()
   setupWindow()

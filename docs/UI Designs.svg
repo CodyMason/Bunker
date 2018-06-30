@@ -14,7 +14,7 @@
    viewBox="0 0 169.33333 127"
    version="1.1"
    id="svg8"
-   inkscape:version="0.92.3 (2405546, 2018-03-11)"
+   inkscape:version="0.92.1 r15371"
    sodipodi:docname="UI Designs.svg">
   <defs
      id="defs2" />
@@ -25,9 +25,9 @@
      borderopacity="1.0"
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="2"
-     inkscape:zoom="5.6568542"
-     inkscape:cx="334.7811"
-     inkscape:cy="221.26289"
+     inkscape:zoom="2.8284271"
+     inkscape:cx="285.20869"
+     inkscape:cy="246.49093"
      inkscape:document-units="mm"
      inkscape:current-layer="layer1"
      showgrid="false"
@@ -35,8 +35,8 @@
      units="px"
      inkscape:object-paths="false"
      inkscape:snap-object-midpoints="true"
-     inkscape:window-width="1440"
-     inkscape:window-height="837"
+     inkscape:window-width="1920"
+     inkscape:window-height="1018"
      inkscape:window-x="-8"
      inkscape:window-y="-8"
      inkscape:window-maximized="1">
@@ -262,7 +262,8 @@
        id="g4615"
        inkscape:export-filename="D:\Computing Stuff\Game Development\Bunker\images\build_menu\empty.png"
        inkscape:export-xdpi="72.000038"
-       inkscape:export-ydpi="72.000038">
+       inkscape:export-ydpi="72.000038"
+       transform="translate(-0.74835468)">
       <circle
          r="4.2333331"
          cy="237.73332"
@@ -272,8 +273,9 @@
       <path
          id="rect4608"
          transform="matrix(0.26458333,0,0,0.26458333,0,169.99999)"
-         d="M 341.6875 249.5 C 339.64463 249.5 338 251.14463 338 253.1875 L 338 258.8125 C 338 260.85537 339.64463 262.5 341.6875 262.5 L 347.3125 262.5 C 349.35537 262.5 351 260.85537 351 258.8125 L 351 253.1875 C 351 251.14463 349.35537 249.5 347.3125 249.5 L 341.6875 249.5 z M 343.31055 253.25 L 345.68945 253.25 C 346.55375 253.25 347.25 253.94625 347.25 254.81055 L 347.25 257.18945 C 347.25 258.05375 346.55375 258.75 345.68945 258.75 L 343.31055 258.75 C 342.44625 258.75 341.75 258.05375 341.75 257.18945 L 341.75 254.81055 C 341.75 253.94625 342.44625 253.25 343.31055 253.25 z "
-         style="opacity:1;vector-effect:none;fill:#ffffff;fill-opacity:1;stroke:none;stroke-width:0.37795275;stroke-linecap:butt;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;paint-order:normal" />
+         d="m 341.6875,249.5 c -2.04287,0 -3.6875,1.64463 -3.6875,3.6875 v 5.625 c 0,2.04287 1.64463,3.6875 3.6875,3.6875 h 5.625 c 2.04287,0 3.6875,-1.64463 3.6875,-3.6875 v -5.625 c 0,-2.04287 -1.64463,-3.6875 -3.6875,-3.6875 z m 1.62305,3.75 h 2.3789 c 0.8643,0 1.56055,0.69625 1.56055,1.56055 v 2.3789 c 0,0.8643 -0.69625,1.56055 -1.56055,1.56055 h -2.3789 c -0.8643,0 -1.56055,-0.69625 -1.56055,-1.56055 v -2.3789 c 0,-0.8643 0.69625,-1.56055 1.56055,-1.56055 z"
+         style="opacity:1;vector-effect:none;fill:#ffffff;fill-opacity:1;stroke:none;stroke-width:0.37795275;stroke-linecap:butt;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;paint-order:normal"
+         inkscape:connector-curvature="0" />
     </g>
   </g>
 </svg>

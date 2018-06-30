@@ -1,4 +1,3 @@
-require "resource"
 
 function setupGame()
   game_timer = 0
@@ -11,6 +10,7 @@ function setupGame()
   initMap()
 
   builder = Builder()
+  worker  = Worker(128, love.graphics.getHeight()-GROUND-16, "none")
 end
 
 function updateGame()
@@ -27,11 +27,14 @@ end
 
 function drawGame()
   if grid then drawGrid() end
-  world_map:draw()
+  --world_map:draw()
+  drawGround()
 
   for i=1, #rooms do
     rooms[i]:draw()
   end
+  
+  worker:draw()
 
   drawUI()
   builder:draw()

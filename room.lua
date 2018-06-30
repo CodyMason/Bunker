@@ -12,12 +12,9 @@ function Room(type, tx, ty, w, h, speed)
 
   -- REPLACE THESE LOCALS WITH GLOBAL CONSTANTS
   function r:getRoomColor()
-    local colors = {["empty"]   = {0.5, 0.5, 0.5},
-                    ["storage"] = {1.0, 0.5, 0.2},
-					["power"]   = {0.75, 0.2, 0.1},
-                    ["food"]    = {0.35, 0.9, 0.24},
-                    ["oxygen"]  = {0.0, 0.5, 0.8}}
-    return colors[self.type]
+	local c = COLORS[self.type]
+	local v = 0.25
+    return {v+(c[1]*0.8), v+(c[2]*0.8), v+(c[3]*0.8)}
   end
   
   function r:getRoomSpeed()
@@ -27,6 +24,7 @@ function Room(type, tx, ty, w, h, speed)
 	return speeds[self.type]
   end
 
+  -- INITIATE VARIABLES
   r.type  = type
   r.tx    = tx
   r.ty    = ty
@@ -59,13 +57,16 @@ function Room(type, tx, ty, w, h, speed)
   
   function r:draw()
     local inset = 4
-    love.graphics.setColor(0.6, 0.6, 0.6)
+	
+	love.graphics.setColor(self.color)
+	love.graphics.rectangle("fill", (self.tx-1)*TILE_WIDTH, (self.ty-1)*TILE_HEIGHT, self.w*TILE_WIDTH, self.h*TILE_HEIGHT)
+    love.graphics.setColor(1, 1, 1)
     love.graphics.rectangle("line", ((self.tx-1)*TILE_WIDTH)+inset, ((self.ty-1)*TILE_HEIGHT)+inset,
                                     (self.w*TILE_WIDTH)-inset*2,  (self.h*TILE_HEIGHT)-inset*2)
-    love.graphics.setColor(1, 1, 1)
-    love.graphics.rectangle("fill", ((self.tx-1)*TILE_WIDTH)+inset-2, ((self.ty-1)*TILE_HEIGHT)+inset-2, 14-2, 14-2)
-    love.graphics.setColor(self.color[1], self.color[2], self.color[3])
-    love.graphics.rectangle("fill", ((self.tx-1)*TILE_WIDTH)+inset, ((self.ty-1)*TILE_HEIGHT)+inset, 14-inset-2, 14-inset-2)
+    --love.graphics.setColor(1, 1, 1)
+    --love.graphics.rectangle("fill", ((self.tx-1)*TILE_WIDTH)+inset-2, ((self.ty-1)*TILE_HEIGHT)+inset-2, 14-2, 14-2)
+    --love.graphics.setColor(COLORS[self.type])
+    --love.graphics.rectangle("fill", ((self.tx-1)*TILE_WIDTH)+inset, ((self.ty-1)*TILE_HEIGHT)+inset, 14-inset-2, 14-inset-2)
     love.graphics.setColor(1, 1, 1)
   end
 

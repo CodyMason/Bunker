@@ -80,7 +80,7 @@ function Builder()
 
     if rw > 0 and rh > 0 then
       local room = Room(type, rtx, rty, rw, rh)
-      room:build()
+      --room:build()
       rooms[#rooms+1] = room
     end
   end

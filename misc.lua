@@ -4,12 +4,15 @@ function followMouse(self)
 end
 
 function drawGrid()
+  local width  = love.graphics.getWidth()  / 16
+  local height = love.graphics.getHeight() / 16
+
   love.graphics.setColor(0.9, 0.9, 0.9)
-  for y=1, world_map.h do
-    love.graphics.line(0, y*TILE_HEIGHT, world_map.w*TILE_WIDTH, y*TILE_WIDTH)
+  for y=1, height do
+    love.graphics.line(0, y*TILE_HEIGHT, width*TILE_WIDTH, y*TILE_WIDTH)
   end
-  for x=1, world_map.w do
-    love.graphics.line(x*TILE_WIDTH, 0, x*TILE_WIDTH, world_map.h*TILE_HEIGHT)
+  for x=1, width do
+    love.graphics.line(x*TILE_WIDTH, 0, x*TILE_WIDTH, height*TILE_HEIGHT)
   end
   love.graphics.setColor(1, 1, 1)
 end
